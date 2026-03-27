@@ -1,4 +1,5 @@
 import {
+<<<<<<< HEAD
   getAllAppointments as getAppointments,
   createAppointment,
   deleteAppointment,
@@ -25,6 +26,17 @@ export const fetchAppointments = async (req, res) => {
     }
 
     res.json(appointments || []);
+=======
+  getAppointments,
+  createAppointment,
+  deleteAppointment,
+} from "../models/appointmentModel.js";
+
+export const fetchAppointments = async (req, res) => {
+  try {
+    const appointments = await getAppointments();
+    res.json(appointments);
+>>>>>>> 931e1ee7d492884b6a6ae522f21133eab016e868
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -47,6 +59,7 @@ export const removeAppointment = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+<<<<<<< HEAD
 
 export const editAppointment = async (req, res) => {
   try {
@@ -56,3 +69,5 @@ export const editAppointment = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+=======
+>>>>>>> 931e1ee7d492884b6a6ae522f21133eab016e868

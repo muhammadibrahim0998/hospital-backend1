@@ -19,6 +19,7 @@ db.getConnection((err, connection) => {
 });
 
 export default db.promise();
+<<<<<<< HEAD
 
 // backend/config/db.js
 // backend/config/db.js
@@ -32,10 +33,17 @@ export default db.promise();
 // const pool = new Pool({
 //   host: process.env.DB_HOST,
 //   port: process.env.DB_PORT,
+=======
+// import mysql from "mysql2";
+
+// export const db = mysql.createConnection({
+//   host: process.env.DB_HOST,
+>>>>>>> 931e1ee7d492884b6a6ae522f21133eab016e868
 //   user: process.env.DB_USER,
 //   password: process.env.DB_PASSWORD,
 //   database: process.env.DB_NAME,
 //   ssl: {
+<<<<<<< HEAD
 //     rejectUnauthorized: false,
 //   },
 // });
@@ -60,3 +68,10 @@ export default db.promise();
 //   .connect()
 //   .then(() => console.log("✅ Database connected"))
 //   .catch((err) => console.error("❌ DB error:", err));
+=======
+//     rejectUnauthorized: true,
+//   },
+// });
+
+
+>>>>>>> 931e1ee7d492884b6a6ae522f21133eab016e868

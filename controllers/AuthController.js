@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { createUser, findUserByEmail } from "../models/UserModel.js";
+<<<<<<< HEAD
 import { createDoctor } from "../models/DoctorModel.js";
 import { createPatient } from "../models/PatientModel.js";
 import { findHospitalAdminByEmail } from "../models/HospitalModel.js";
@@ -13,6 +14,11 @@ import db from "../config/db.js";
  */
 export const register = async (req, res) => {
   const { name, email, password, role, hospitalId, gender, age, phone, cnic } = req.body;
+=======
+
+export const register = async (req, res) => {
+  const { name, email, password } = req.body;
+>>>>>>> 931e1ee7d492884b6a6ae522f21133eab016e868
 
   try {
     const existingUsers = await findUserByEmail(email);
@@ -21,6 +27,7 @@ export const register = async (req, res) => {
 
     const hash = await bcrypt.hash(password, 10);
 
+<<<<<<< HEAD
     // Security: public registration can ONLY create patient roles.
     // Doctors/Admins must be created securely from the backend by authorized roles.
     const userRole = "patient";
@@ -61,10 +68,21 @@ export const register = async (req, res) => {
  * For hospital_admin: checks hospital_admins table (NOT users table).
  * For all others: checks users table.
  */
+=======
+    await createUser([name, email, hash]);
+    res.json({ message: "User registered successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+};
+
+>>>>>>> 931e1ee7d492884b6a6ae522f21133eab016e868
 export const login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
+<<<<<<< HEAD
     // ── Step 1: Check if this email belongs to a hospital_admin ─────────────
     const hospitalAdmins = await findHospitalAdminByEmail(email);
 
@@ -112,6 +130,8 @@ export const login = async (req, res) => {
     }
 
     // ── Step 2: Check users table (super_admin, doctor, patient) ─────────────
+=======
+>>>>>>> 931e1ee7d492884b6a6ae522f21133eab016e868
     const users = await findUserByEmail(email);
     if (users.length === 0)
       return res.status(404).json({ message: "User not found" });
@@ -120,6 +140,7 @@ export const login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ message: "Wrong password" });
 
+<<<<<<< HEAD
     const tokenPayload = {
       id: user.id,
       role: user.role,
@@ -149,5 +170,15 @@ export const login = async (req, res) => {
   } catch (err) {
     console.error("Login Error:", err);
     res.status(500).json({ message: "Internal Server Error", error: err.message });
+=======
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
+
+    res.json({ token, user });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+>>>>>>> 931e1ee7d492884b6a6ae522f21133eab016e868
   }
 };

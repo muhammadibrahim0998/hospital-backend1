@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 
+<<<<<<< HEAD
 /**
  * verifyToken
  * Decodes JWT and attaches userId, userRole, hospitalId, hospitalAdminId to req.
@@ -96,4 +97,19 @@ export const scopeToHospital = (req, res, next) => {
   }
 
   return res.status(403).json({ message: "Access denied" });
+=======
+export const protect = (req, res, next) => {
+  const auth = req.headers.authorization;
+
+  if (!auth || !auth.startsWith("Bearer "))
+    return res.status(401).json({ message: "No token" });
+
+  try {
+    const token = auth.split(" ")[1];
+    req.user = jwt.verify(token, process.env.JWT_SECRET);
+    next();
+  } catch {
+    res.status(401).json({ message: "Invalid token" });
+  }
+>>>>>>> 931e1ee7d492884b6a6ae522f21133eab016e868
 };
