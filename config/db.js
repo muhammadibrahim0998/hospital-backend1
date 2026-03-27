@@ -1,6 +1,6 @@
 import mysql from "mysql2";
 
-// Use environment variables
+
 const db = mysql.createPool({
   host: process.env.DB_HOST || "localhost",
   user: process.env.DB_USER || "root",
@@ -8,7 +8,7 @@ const db = mysql.createPool({
   database: process.env.DB_NAME || "hospital_system",
 });
 
-// Test connection
+
 db.getConnection((err, connection) => {
   if (err) {
     console.error("Database connection failed:", err.message);
@@ -19,59 +19,4 @@ db.getConnection((err, connection) => {
 });
 
 export default db.promise();
-<<<<<<< HEAD
 
-// backend/config/db.js
-// backend/config/db.js
-// import pkg from "pg";
-// import dotenv from "dotenv";
-
-// dotenv.config();
-
-// const { Pool } = pkg;
-
-// const pool = new Pool({
-//   host: process.env.DB_HOST,
-//   port: process.env.DB_PORT,
-=======
-// import mysql from "mysql2";
-
-// export const db = mysql.createConnection({
-//   host: process.env.DB_HOST,
->>>>>>> 931e1ee7d492884b6a6ae522f21133eab016e868
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   database: process.env.DB_NAME,
-//   ssl: {
-<<<<<<< HEAD
-//     rejectUnauthorized: false,
-//   },
-// });
-
-// pool
-//   .connect()
-//   .then(() => console.log("✅ Connected to PostgreSQL"))
-//   .catch((err) => console.error("❌ DB connection error:", err));
-
-// export default pool;
-
-// const { Pool } = require("pg");
-
-// const pool = new Pool({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: {
-//     rejectUnauthorized: false,
-//   },
-// });
-
-// pool
-//   .connect()
-//   .then(() => console.log("✅ Database connected"))
-//   .catch((err) => console.error("❌ DB error:", err));
-=======
-//     rejectUnauthorized: true,
-//   },
-// });
-
-
->>>>>>> 931e1ee7d492884b6a6ae522f21133eab016e868
