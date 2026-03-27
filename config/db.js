@@ -47,16 +47,16 @@ export default db.promise();
 
 // export default pool;
 
-const { Pool } = require("pg");
+// const { Pool } = require("pg");
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
+// const pool = new Pool({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: {
+//     rejectUnauthorized: false,
+//   },
+// });
 
-pool
-  .connect()
-  .then(() => console.log("✅ Database connected"))
-  .catch((err) => console.error("❌ DB error:", err));
+// pool
+//   .connect()
+//   .then(() => console.log("✅ Database connected"))
+//   .catch((err) => console.error("❌ DB error:", err));
