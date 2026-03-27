@@ -1,6 +1,6 @@
 import mysql from "mysql2";
 
-
+// Use environment variables
 const db = mysql.createPool({
   host: process.env.DB_HOST || "localhost",
   user: process.env.DB_USER || "root",
@@ -8,7 +8,7 @@ const db = mysql.createPool({
   database: process.env.DB_NAME || "hospital_system",
 });
 
-
+// Test connection
 db.getConnection((err, connection) => {
   if (err) {
     console.error("Database connection failed:", err.message);

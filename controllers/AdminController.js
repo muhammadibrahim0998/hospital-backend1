@@ -8,7 +8,7 @@ import {
 } from "../models/DoctorModel.js";
 import { updateUser, deleteUser } from "../models/UserModel.js";
 import { getAllPatients } from "../models/PatientModel.js";
-import { getAllAppointments } from "../models/AppointmentModel.js";
+import { getAllAppointments } from "../models/appointmentModel.js";
 import bcrypt from "bcryptjs";
 import db from "../config/db.js";
 

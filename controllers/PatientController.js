@@ -1,6 +1,6 @@
 import { createPatient, getPatientByUserId } from "../models/PatientModel.js";
 import { getAllDoctors, getDoctorByUserId } from "../models/DoctorModel.js";
-import { createAppointment, getPatientAppointments } from "../models/AppointmentModel.js";
+import { createAppointment, getPatientAppointments } from "../models/appointmentModel.js";
 
 export const bookAppointment = async (req, res) => {
     const { doctor_id, appointment_date, doctor_name, doctor_phone, fee, patient_phone, cnic, time } = req.body;

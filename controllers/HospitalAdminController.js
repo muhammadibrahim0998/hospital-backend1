@@ -7,7 +7,7 @@ import {
 } from "../models/HospitalModel.js";
 import { getAllDoctors } from "../models/DoctorModel.js";
 import { getAllPatients } from "../models/PatientModel.js";
-import { getAllAppointments } from "../models/AppointmentModel.js";
+import { getAllAppointments } from "../models/appointmentModel.js";
 import { getAllAppUsers } from "../models/HospitalModel.js";
 
 /**

@@ -1,5 +1,5 @@
 import { getDoctorByUserId, getDoctorById } from "../models/DoctorModel.js";
-import { getDoctorAppointments, updateAppointmentStatus } from "../models/AppointmentModel.js";
+import { getDoctorAppointments, updateAppointmentStatus } from "../models/appointmentModel.js";
 
 export const getMyAppointments = async (req, res) => {
     try {
